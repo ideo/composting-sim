@@ -73,7 +73,6 @@ with col5:
                                 key = 'n_composters')
                                 
     num_composters = int(frac_composters*neighborhood_size/100)
-    print(num_composters)  # TODO: this number is correct but not reflecting properly on sim
 
 my_cols_tuple = (7, 1, 7, 1, 7, 1, 7)
 col1, col2, col3, col4, col5, col6, col7 = st.columns(my_cols_tuple)

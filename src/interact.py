@@ -78,7 +78,7 @@ class Interact(Model):
         self.neighbors = []  
 
         # randomly pick people who are already composting
-        who_already_composting = np.random.choice(self.n_neighbors, self.n_already_composting)
+        who_already_composting = np.random.choice(self.n_neighbors, self.n_already_composting, replace = False)
 
         for n in range(self.n_neighbors):
 
@@ -124,8 +124,6 @@ class Interact(Model):
         Returns:
             int: number of people who compost.
         """
-        # if model.current_tick == 1:
-        #     print("starting number of composters:", sum([n.compost for n in model.neighbors]))
         return sum([n.compost for n in model.neighbors])
 
 
