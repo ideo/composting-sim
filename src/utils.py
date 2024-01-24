@@ -134,7 +134,7 @@ def plot_composters_over_time(data, neighborhood_size):
         neighborhood_size (int): size of the neighborood
     """
 
-    data_plot = alt.Chart(data).mark_line().encode(
+    data_plot = alt.Chart(data, title = 'Number of Composters Over Time').mark_line().encode(
                                             x = alt.X('day', title = 'Day'),
                                             y = alt.Y('number_of_composters', scale = alt.Scale(domain = [0, neighborhood_size]),
                                                       title = 'Number of Composters')

@@ -162,7 +162,7 @@ model_data = model.datacollector.get_model_vars_dataframe().reset_index()
 model_data['day'] = model_data['index'].divide(model_data['neighborhood_size'])  
 
 # ************************************************************************    
-st.subheader('Number of Composters Over Time')
+st.subheader("Let's see the results!")
 
 my_cols_tuple = (1, 1)
 col1, col2 = st.columns(my_cols_tuple)
