@@ -78,14 +78,14 @@ class Interact(Model):
         self.neighbors = []  
 
         # randomly pick people who are already composting
-        who_already_composting = np.random.choice(self.n_neighbors, self.n_already_composting)        
-        
+        who_already_composting = np.random.choice(self.n_neighbors, self.n_already_composting)
+
         for n in range(self.n_neighbors):
 
             #the neighbor object needs a unique id (n) and the interaction model (self)
             neighbor = Neighbor(n, self)
             self.schedule.add(neighbor)
-            self.neighbors.append(neighbor)            
+            self.neighbors.append(neighbor)
             if n in who_already_composting:
                 self.neighbors[n].compost = True
 
@@ -94,9 +94,9 @@ class Interact(Model):
         """
         for n in range(self.n_neighbors):
             self.neighbors[n].matched_for_conversation = False
-        print(f"********************")
-        print(f"It's day {self.current_tick / self.n_neighbors} -> reset availability of neighbors")
-        print(f"********************")
+        # print(f"********************")
+        # print(f"It's day {self.current_tick / self.n_neighbors} -> reset availability of neighbors")
+        # print(f"********************")
 
 
     def step(self):
@@ -124,6 +124,8 @@ class Interact(Model):
         Returns:
             int: number of people who compost.
         """
+        # if model.current_tick == 1:
+        #     print("starting number of composters:", sum([n.compost for n in model.neighbors]))
         return sum([n.compost for n in model.neighbors])
 
 
