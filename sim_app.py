@@ -1,14 +1,10 @@
 import streamlit as st
 import altair as alt
-# TODO: one potential theme to explore: do we achieve faster collective adaptation of a behavior if a bunch of
-#  individuals already behave a certain way but don't talk to each other, as opposed to only a few people behaving a
-#  certain way but them having more networked influence?
-# TODO: add README
 
 import pandas as pd
 import src.utils as utils
 from src.interact import Interact
-st.set_page_config(layout = 'wide')
+st.set_page_config(layout = 'wide', page_title = 'Neighborhood Composting Simulation', page_icon = '🚮')
 
 
 st.header('How quickly can a neighborhood adopt the practice of composting their food scraps?')
@@ -122,7 +118,7 @@ with col5:
     encouragement_skew = st.slider("""If someone already composts, how likely are they to encourage
                                 other people to do the same? 
                                 We model this probability via a beta distribution. 
-                                Choose its skeweness, where higher values mean more 
+                                Choose its skewness, where higher values mean more 
                                 likely to encourage others.""", 
                                     value = 5,
                                     min_value = 1, 
@@ -137,7 +133,7 @@ with col7:
     openness_xmax = 10
     openness_skew = st.slider("""If someone doesn't compost, how likely are they to be convinced by a 
                                 neighbor to start? We model this probability via a beta distribution.
-                                Choose its skeweness, where higher values mean more likely to be convinced.""", 
+                                Choose its skewness, where higher values mean more likely to be convinced.""",
                                     value = 3,
                                     min_value = 1, 
                                     max_value = openness_xmax)
